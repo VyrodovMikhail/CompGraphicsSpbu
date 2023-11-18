@@ -31,3 +31,13 @@ def test_maze_solver():
         for k in range(9):
             if (i, k) not in expected_free_set:
                 assert not solver.is_free((i, k))
+
+    new_solver = MazeSolver("tests/maze_tests/2.txt")
+
+    for point in expected_free_set:
+        assert new_solver.is_free(point)
+
+    for i in range(8):
+        for k in range(9):
+            if (i, k) not in expected_free_set:
+                assert not new_solver.is_free((i, k))
